@@ -73,15 +73,19 @@ public class StudentRestController {
 
 	@ExceptionHandler
 	public ResponseEntity<StudentErrorResponse> handleException(Exception exc) {
-		
+//		this one is for any other exception
+
+//		again create a StudentErrorResponse object
 		StudentErrorResponse error = new StudentErrorResponse();
 		
 		error.setStatus(HttpStatus.BAD_REQUEST.value());
-		error.setMessage(exc.getMessage());
+//		error.setMessage(exc.getMessage());    //can update this line to give whatever plain text message you want
+		error.setMessage("I don't know what that is...");
 		error.setTimeStamp(System.currentTimeMillis());
-		
+
+//		return ResponseEntity object with error message and status code in the body and headers
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-	}	
+	}
 }
 
 
